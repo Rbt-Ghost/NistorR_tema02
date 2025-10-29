@@ -12,7 +12,7 @@ namespace LearningOpenTK
         [STAThread]
         static void Main(string[] args)
         {
-            using (var window = new Mywindow(800, 600, "MyWindow"))
+            using (var window = new Window3D())
             {
                 window.Run(60.0);
             }
