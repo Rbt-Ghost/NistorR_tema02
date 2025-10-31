@@ -15,12 +15,18 @@ namespace LearningOpenTK
         private const int POINT_OFFSET = GRIDSTEP * UNITS;
         private const int MICRO_OFFSET = 1; // usefeul because otherwise the axes will be "drown" in overlapping grid lines...
 
+        /// <summary>
+        // / Default constructor.
+        /// </summary>
         public Grid()
         {
             colorisation = GRIDCOLOR;
             visibility = true;
         }
 
+        /// <summary>
+        /// Sets visibility of the object ON.
+        /// </summary>
         public void Show()
         {
             visibility = true;
@@ -35,6 +41,10 @@ namespace LearningOpenTK
         {
             visibility = !visibility;
         }
+
+        /// <summary>
+        /// This methods handles the drawing of the object. Must be called - always - from OnRenderFrame() method! The drawing can be unconditional.
+        /// </summary> 
 
         public void Draw()
         {

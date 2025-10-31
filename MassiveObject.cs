@@ -21,6 +21,8 @@ namespace LearningOpenTK
         private Color meshColor;
         private bool hasError;
 
+        /// <summary>
+        /// Constructor.
         public MassiveObject(Color col)
         {
 
@@ -54,6 +56,9 @@ namespace LearningOpenTK
             }
         }
 
+        /// <summary>
+        /// This methods handles the drawing of the object. Must be called - always - from OnRenderFrame() method! The drawing can be conditional.
+        /// </summary>
         public void Draw()
         {
             if (hasError == false && visibility == true)
@@ -68,6 +73,9 @@ namespace LearningOpenTK
             }
         }
 
+        /// <summary>
+        /// Loads a list of Vector3 coordinates from an OBJ file.
+        /// </summary>
         private List<Vector3> LoadFromObjFile(string fname)
         {
             List<Vector3> vlc3 = new List<Vector3>();

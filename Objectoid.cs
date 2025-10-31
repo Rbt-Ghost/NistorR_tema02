@@ -11,6 +11,7 @@ namespace LearningOpenTK
 {
     class Objectoid
     {
+        // attributes
         private bool visibility;
         private bool isGravityBound;
         private Color color;
@@ -19,14 +20,17 @@ namespace LearningOpenTK
 
         private const int GRAVITY_OFFSET = 1;
 
+        // constructor
         public Objectoid(bool gravity_status)
         {
+            
             rando = new Randomizer();
 
             visibility = true;
             isGravityBound = gravity_status;
             color = rando.RandomColor();
 
+            // create cube coordinates
             coordList = new List<Vector3d>();
             int size_offset = rando.RandomInt(3,7);
             int height_offset = rando.RandomInt(40,60);
@@ -43,7 +47,10 @@ namespace LearningOpenTK
             coordList.Add(new Vector3d(0 * size_offset + radial_offset, 0 * size_offset + height_offset, 1 * size_offset + radial_offset));
             coordList.Add(new Vector3d(0 * size_offset + radial_offset, 0 * size_offset + height_offset, 0 * size_offset + radial_offset));
         }
-
+        /// <summary>
+        /// This methods handles the drawing of the object. 
+        /// Must be called - always - from OnRenderFrame() method! The drawing can be conditional.
+        /// </summary>
         public void Draw()
         {
             if (visibility)
@@ -58,6 +65,9 @@ namespace LearningOpenTK
             }
         }
 
+        /// <summary>
+        /// Updates the position of the object, if gravity is enabled.
+        /// </summary>
         public void updatePosition(bool gravity_status)
         {
             if (gravity_status && visibility && !groundCollision())
@@ -69,6 +79,7 @@ namespace LearningOpenTK
             }
         }
 
+        // checks if any of the object's coordinates has collided with the ground (Y <= 0)
         public bool groundCollision()
         {
             foreach (Vector3 v in coordList)
@@ -81,6 +92,7 @@ namespace LearningOpenTK
             return false;
         }
 
+        // getters and setters  
         public void ToggleVisibility()
         {
             visibility = !visibility;

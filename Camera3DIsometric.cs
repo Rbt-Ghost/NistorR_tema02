@@ -5,12 +5,16 @@ namespace LearningOpenTK
 {
     class Camera3DIsometric
     {
+        // camera parameters
         private Vector3 eye;
         private Vector3 target;
         private Vector3 up_vector;
 
         private const int MOVEMENT_UNIT = 1;
 
+        // / <summary>
+        // / Default constructor. Sets default camera parameters.
+        // / </summary>
         public Camera3DIsometric()
         {
             eye = new Vector3(200, 175, 25);
@@ -32,6 +36,9 @@ namespace LearningOpenTK
             up_vector = _up;
         }
 
+        // <summary>
+        // Sets the camera parameters in OpenGL.
+        // <summary>
         public void SetCamera()
         {
             Matrix4 camera = Matrix4.LookAt(eye, target, up_vector);
@@ -39,6 +46,8 @@ namespace LearningOpenTK
             GL.LoadMatrix(ref camera);
         }
 
+
+        // Movement methods
         public void MoveRight()
         {
             eye = new Vector3(eye.X, eye.Y, eye.Z - MOVEMENT_UNIT);

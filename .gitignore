@@ -1,0 +1,31 @@
+# Ignore Visual Studio user-specific files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore build results
+bin/
+obj/
+
+# Ignore temporary files
+*.log
+*.tmp
+*.cache
+*.db
+*.db-shm
+*.db-wal
+
+# Ignore VS indexes
+*.vsidx
+*.db-wal
+*.db-shm
+
+# Ignore Copilot indices
+.vscode/
+.vs/
+
+# Ignore system files
+Thumbs.db
+Desktop.ini
